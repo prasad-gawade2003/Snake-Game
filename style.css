@@ -1,0 +1,189 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Theme ── */
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --border:    #30363d;
+  --green:     #39d353;
+  --green-dk:  #196127;
+  --food:      #f78166;
+  --text:      #e6edf3;
+  --muted:     #7d8590;
+  --font:      'Courier New', Courier, monospace;
+}
+
+/* ── Base ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Wrapper ── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ── Header ── */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.35em;
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(57, 211, 83, 0.4);
+}
+
+.score-bar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--text);
+  min-width: 2.5ch;
+  text-align: right;
+}
+
+/* ── Canvas area ── */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.canvas-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  background: var(--surface);
+}
+
+/* ── Overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(13, 17, 23, 0.88);
+  backdrop-filter: blur(2px);
+}
+
+.overlay.show { display: flex; }
+
+.overlay-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  color: var(--green);
+}
+
+.overlay-sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+button {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+
+button:hover {
+  background: var(--green);
+  color: var(--bg);
+}
+
+button:active { opacity: 0.8; }
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ctrl-row {
+  display: flex;
+  gap: 4px;
+}
+
+.ctrl-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 1.1rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.ctrl-btn:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ── Hint ── */
+.hint {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 400px) {
+  h1 { font-size: 1.4rem; }
+  .value { font-size: 1.1rem; }
+}

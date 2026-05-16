@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>SNAKE</h1>
+      <div class="score-bar">
+        <div class="score-block">
+          <span class="label">SCORE</span>
+          <span class="value" id="score">0</span>
+        </div>
+        <div class="score-block">
+          <span class="label">BEST</span>
+          <span class="value" id="best">0</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="canvas-wrap">
+        <canvas id="c" width="320" height="320"></canvas>
+        <div id="overlay" class="overlay show">
+          <p class="overlay-title">READY?</p>
+          <p class="overlay-sub">Press Space or tap Start</p>
+          <button id="start-btn" onclick="startGame()">START</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="ctrl-row"><button class="ctrl-btn" id="btn-up">↑</button></div>
+        <div class="ctrl-row">
+          <button class="ctrl-btn" id="btn-left">←</button>
+          <button class="ctrl-btn" id="btn-down">↓</button>
+          <button class="ctrl-btn" id="btn-right">→</button>
+        </div>
+      </div>
+
+      <p class="hint">Arrow keys · WASD · or tap buttons</p>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
